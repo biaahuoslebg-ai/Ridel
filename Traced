@@ -1,0 +1,737 @@
+--[[
+
+  /$$$$$$  /$$       /$$$$$$  /$$$$$$  /$$$$$$$$ /$$$$$$$ 
+ /$$__  $$| $$      |_  $$_/ /$$__  $$| $$_____/| $$__  $$
+| $$  \__/| $$        | $$  | $$  \__/| $$      | $$  \ $$
+|  $$$$$$ | $$        | $$  | $$      | $$$$$   | $$  | $$
+ \____  $$| $$        | $$  | $$      | $$__/   | $$  | $$
+ /$$  \ $$| $$        | $$  | $$    $$| $$      | $$  | $$
+|  $$$$$$/| $$$$$$$$ /$$$$$$|  $$$$$$/| $$$$$$$$| $$$$$$$/
+ \______/ |________/|______/ \______/ |________/|_______/
+
+              [ LEAKED BY SLICED ]
+            [ discord.gg/pubmethod ]
+
+]]
+
+do
+	slicedfn29 = cloneref or function(arg)
+		return arg
+	end
+
+	do
+		local sliced99 = slicedfn29(game:GetService("Players"))
+		sliced86 = slicedfn29(game:GetService("ReplicatedStorage"))
+		sliced96 = slicedfn29(game:GetService("UserInputService"))
+		sliced97 = slicedfn29(game:GetService("TweenService"))
+		sliced98 = slicedfn29(game:GetService("HttpService"))  -- LEAKED BY SLICED | discord.gg/pubmethod
+		sliced87 = slicedfn29(game:GetService("RunService"))
+		sliced88 = slicedfn29(game:GetService("Workspace"))
+		localPlayer = sliced99.LocalPlayer
+	end
+end
+
+playerGui = localPlayer:WaitForChild("PlayerGui")
+sliced89 = sliced86:WaitForChild("Packages"):WaitForChild("Net")
+_G.__RiddlerProxyUrl = "https://riddler-proxy.rp-relay-7k2m.workers.dev"
+_G.__RiddlerClientToken = "2b1f85fb32a1bbe4faf71cf47f64ee8777f9190b35337ee59d05e7b0081a6ad7"
+
+do  -- LEAKED BY SLICED | discord.gg/pubmethod
+	local tbl19 = {}
+
+	if readfile and isfile then
+		local ok, result = pcall(function()
+			if isfile("riddler_settings.txt") then
+				return readfile("riddler_settings.txt")
+			end
+		end)
+
+		if ok and type(result) == "string" then
+			for match in result:gmatch("[^\n]+") do
+				local match2, sliced99 = match:match("^(%w+)=(.*)$")  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+				if match2 then
+					tbl19[match2] = sliced99
+				end
+			end
+		end
+	end
+
+	_G.__RiddlerCfgBool = function(arg, arg2)
+		local sliced99 = tbl19[arg]
+		if sliced99 == "1" then
+			return true  -- LEAKED BY SLICED | discord.gg/pubmethod
+		end
+
+		if sliced99 ~= "0" then
+			return arg2
+		end
+
+		return false
+	end
+
+	_G.__RiddlerCfgStr = function(arg, arg2)
+		local sliced99 = tbl19[arg]
+		return type(sliced99) == "string" and sliced99 ~= "" and sliced99 or arg2
+	end  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+	_G.__RiddlerCfgSet = function(arg, arg2)
+		local sliced99 = tbl19
+		local sliced100 = "boolean"
+		sliced99[arg] = type(arg2) == sliced100 and (arg2 and "1" or "0") or tostring(arg2)
+		if not writefile then
+			return
+		end
+		local tbl20 = {}
+
+		for k, sliced101 in pairs(tbl19) do
+			tbl20[#tbl20 + 1] = k .. "=" .. tostring(sliced101)  -- LEAKED BY SLICED | discord.gg/pubmethod
+		end
+
+		table.sort(tbl20)
+		pcall(writefile, "riddler_settings.txt", table.concat(tbl20, "\n"))
+	end
+end
+
+-- OpenRouter configuration: the API key is NEVER stored in this script.
+-- Option 1 (preferred): set getgenv().OPENROUTER_API_KEY before loading this script.
+-- Option 2: add OPENROUTER_API_KEY=... to riddler_settings.txt.
+local function getOpenRouterApiKey()
+	local envKey
+	if getgenv then
+		local ok, env = pcall(getgenv)
+		if ok and type(env) == "table" then
+			envKey = env.OPENROUTER_API_KEY
+		end
+	end
+
+	if type(envKey) == "string" and envKey ~= "" then
+		return envKey
+	end
+
+	return _G.__RiddlerCfgStr("OPENROUTER_API_KEY", "")
+end
+
+_G.__RiddlerOpenRouterApiKey = getOpenRouterApiKey()
+_G.__RiddlerOpenRouterModel = _G.__RiddlerCfgStr("OPENROUTER_MODEL", "openrouter/free")
+
+do
+	local slicedfn60
+
+	do
+		do
+			_G.__RiddlerUiMult = function()  -- LEAKED BY SLICED | discord.gg/pubmethod
+				return ({ BIG = 1.15, SMALL = 0.8 })[_G.__RiddlerCfgStr("uiSize", "MEDIUM")] or 1
+			end
+
+			model = _G.__RiddlerCfgStr("model", "FASTER")
+
+			if model ~= "FASTER" and model ~= "FAST" then
+				model = "FASTER"
+			end
+
+			getupvalues_ = debug and debug.getupvalues or getupvalues
+			_G.__RiddlerGetConstants = debug and debug.getconstants or getconstants
+			_G.__RiddlerGetLoadedModules = getloadedmodules
+
+			do  -- LEAKED BY SLICED | discord.gg/pubmethod
+				local sliced99 = getconnections
+
+				if sliced99 then
+					getconnections_ = sliced99
+				else
+					getconnections_ = debug and debug.getconnections
+				end
+			end
+		end
+
+		do
+			local setupvalue_, writeClipboard  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+			do
+				setupvalue_ = debug and debug.setupvalue or setupvalue
+
+				do
+					local sliced99 = setclipboard or toclipboard
+
+					if sliced99 then
+						writeClipboard = sliced99
+					else
+						writeClipboard = syn and syn.write_clipboard
+					end
+				end  -- LEAKED BY SLICED | discord.gg/pubmethod
+			end
+
+			request_ = syn and syn.request or http and http.request or http_request or request
+			flag18 = sliced96.TouchEnabled and not sliced96.KeyboardEnabled
+			flag19 = _G.__RiddlerCfgBool("wordMode", false)
+			flag20 = false
+			sliced90 = _G.__RiddlerCfgBool("autoType", false)
+			secure = _G.__RiddlerCfgBool("secure", false)
+			autoCopy = _G.__RiddlerCfgBool("autoCopy", true)
+			openFeed = _G.__RiddlerCfgBool("openFeed", true)
+			sliced91 = _G.__RiddlerCfgBool("autoRedeem", true)  -- LEAKED BY SLICED | discord.gg/pubmethod
+			flag21 = false
+			sliced92 = _G.__RiddlerCfgBool("showTimers", true)
+			_G.__RiddlerDuo = _G.__RiddlerCfgBool("duo", false)
+
+			_G.__SabClassifyDrop = function(arg)
+				local str8 = tostring(arg or "")
+				local str9 = str8:lower()
+				local tbl19 = {}
+
+				for match in str8:gmatch("[%w']+") do
+					tbl19[#tbl19 + 1] = match
+				end  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+				local slicedn34 = #tbl19
+				if slicedn34 == 0 then
+					return nil
+				end
+				local str10 = " " .. str9:gsub("[^%w]", " ") .. " "
+				if str9:find("?", 1, true) then
+					return "riddle"
+				end
+
+				for _, sliced99 in ipairs({
+					" what ",  -- LEAKED BY SLICED | discord.gg/pubmethod
+					" whats ",
+					" which ",
+					" how ",
+					" when ",
+					" who ",
+					" whos ",
+					" where ",
+					" why ",
+					" guess ",
+					" riddle ",  -- LEAKED BY SLICED | discord.gg/pubmethod
+					" name the ",
+				}) do
+					if str10:find(sliced99, 1, true) then
+						return "riddle"
+					end
+				end
+
+				if str10:find(" my ", 1, true) then
+					return "riddle"
+				end
+
+				if slicedn34 >= 2 and (str10:find(" plus ", 1, true) or str9:find("+", 1, true)) then  -- LEAKED BY SLICED | discord.gg/pubmethod
+					return "riddle"
+				end
+
+				if slicedn34 >= 4 and str10:find(" and ", 1, true) then
+					return "riddle"
+				end
+				local flag24 = not str8:find("%l")
+
+				local tbl20 = {
+					LOL = 1,
+					OMG = 1,
+					GOOD = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+					LUCK = 1,
+					CAPS = 1,
+					ALL = 1,
+					SPACES = 1,
+					WINS = 1,
+					WIN = 1,
+					HINT = 1,
+					NOT = 1,
+					LAST = 1,
+					ONE = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+					UPPERCASE = 1,
+					CAPITALS = 1,
+					SECONDS = 1,
+					FAST = 1,
+					NEW = 1,
+					THE = 1,
+					AND = 1,
+					FIRST = 1,
+					GUYS = 1,
+					BRO = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+					YES = 1,
+					NICE = 1,
+				}
+
+				local tbl21 = {
+					colour = 1,
+					color = 1,
+					colours = 1,
+					colors = 1,
+					name = 1,
+					rarity = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+					income = 1,
+					gen = 1,
+					generation = 1,
+					mps = 1,
+					mutation = 1,
+					mutations = 1,
+					trait = 1,
+					traits = 1,
+					exist = 1,
+					exists = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+					date = 1,
+					month = 1,
+					year = 1,
+					age = 1,
+					value = 1,
+					price = 1,
+					speed = 1,
+					tier = 1,
+					amount = 1,
+					stock = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+					count = 1,
+					multiplier = 1,
+					birthday = 1,
+					cost = 1,
+					earnings = 1,
+					fav = 1,
+					favourite = 1,
+					favorite = 1,
+				}
+
+				local flag25 = str9:find("code%s+was") ~= nil or str9:find("answer%s+was") ~= nil  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+				local tbl22 = {
+					prize = 1,
+					hint = 1,
+					reward = 1,
+					time = 1,
+					limit = 1,
+					winners = 1,
+					redeems = 1,
+					uses = 1,
+					ends = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+					giveaway = 1,
+				}
+
+				if not flag25 then
+					local match, sliced99 = str8:match("(%a+):%s*([%w]+)[%s%p]*$")
+
+					if match and sliced99 and not tbl22[match:lower()] then
+						flag25 = true
+					end
+				end
+
+				if not flag25 then
+					local tbl23 = {}  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+					for match in str8:gmatch("[%w']+") do
+						tbl23[#tbl23 + 1] = match
+					end
+
+					local flag26 = false
+
+					for i, sliced99 in ipairs(tbl23) do
+						local str11 = sliced99:gsub("'[sS]$", "")
+						local str12 = str11:lower()
+						local str13 = tbl23[i + 1] or ""
+						local str14 = tbl23[i + 2] or ""
+						local match = (sliced99:match("'[sS]$") or sliced99:match("[sS]$")) and tbl21[str13:lower()] or str13:match("'[sS]$") and tbl21[str14:lower()]  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+						if not match then
+							match = tbl22[(tbl23[i - 1] or ""):lower()]
+
+							if match then
+								local str15 = tbl23[i - 2] or ""
+								local sliced100 = "of"
+								match = str15:lower() ~= sliced100
+							end
+
+							if match then
+								match = (tbl23[i - 2] or ""):lower() ~= "is"
+							end  -- LEAKED BY SLICED | discord.gg/pubmethod
+						end
+
+						if str12 == "of" then
+							flag26 = true
+						elseif not (flag26 and str12 == "of") then
+							if str11:match("^%d+[snrt][tdh]$") then
+								flag26 = false
+							else
+								local match2 = #str11 >= 4 and str11:match("^%d+$")
+								local flag27
+
+								if match2 then  -- LEAKED BY SLICED | discord.gg/pubmethod
+									flag27 = not (tbl23[i + 1] or ""):match("^%l")
+								else
+									flag27 = match2
+								end
+
+								flag27 = flag27 or str11:match("^%d+%u+$") or str11:match("%d") and select(2, str11:gsub("%a", "")) >= 2
+
+								if flag27 then
+									flag25 = true
+									break
+								elseif not flag24 and #str11 >= 3 and str11:match("^%u+$") and not tbl20[str11] then
+									if not (flag26 or match) then  -- LEAKED BY SLICED | discord.gg/pubmethod
+										flag25 = true
+										break
+									end
+								else
+									flag26 = false
+								end
+							end
+						end
+					end
+				end  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+				if not flag25 then
+					local tbl23 = {
+						the = 1,
+						its = 1,
+						his = 1,
+						this = 1,
+						that = 1,
+						their = 1,
+						our = 1,
+						sammys = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+						todays = 1,
+						current = 1,
+						sabs = 1,
+					}
+
+					local tbl24 = {
+						prize = 1,
+						brainrot = 1,
+						sab = 1,
+						sammy = 1,
+						dev = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+						game = 1,
+						secret = 1,
+						new = 1,
+					}
+
+					local tbl25 = {
+						next = 1,
+						same = 1,
+						one = 1,
+						below = 1,
+						above = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+						weekend = 1,
+						week = 1,
+						monday = 1,
+						tuesday = 1,
+						wednesday = 1,
+						thursday = 1,
+						friday = 1,
+						saturday = 1,
+						sunday = 1,
+						message = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+						worth = 1,
+						last = 1,
+						final = 1,
+						first = 1,
+					}
+
+					local tbl26 = {
+						just = 1,
+						literally = 1,
+						also = 1,
+						actually = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+						still = 1,
+						gonna = 1,
+						going = 1,
+						to = 1,
+						be = 1,
+					}
+
+					local tbl27 = nil
+
+					for _, sliced99 in ipairs({
+						"code%s+is[%s%p]*",
+						"code%s+will%s+be[%s%p]*",  -- LEAKED BY SLICED | discord.gg/pubmethod
+						"code%s*=%s*",
+						"code%s*:%s*",
+						"code%s+equals%s+",
+						"code%s+would%s+be%s+",
+						"codes?%s+gonna%s+be%s+",
+						"code's%s+",
+						"code%s+this%s+time%s+is%s+",
+						"code%s+today%s+is%s+",
+						"code%s+this%s+time%s+will%s+be%s+",
+						"code%s+for%s+[%a%s]-%s+is%s+",  -- LEAKED BY SLICED | discord.gg/pubmethod
+						"code%s+for%s+[%a%s]-%s+will%s+be%s+",
+						"code%s+for%s+[%a%s]-:%s*",
+					}) do
+						local pos, sliced100 = str9:find(sliced99)
+
+						if pos and (not tbl27 or pos < tbl27[1] or pos == tbl27[1] and sliced100 > tbl27[2]) then
+							tbl27 = { pos, sliced100 }
+						end
+					end
+
+					if tbl27 then
+						local tbl28 = {}  -- LEAKED BY SLICED | discord.gg/pubmethod
+						local tbl29 = {}
+
+						for match in str8:sub(tbl27[2] + 1):gmatch("[%w']+") do
+							tbl28[#tbl28 + 1] = match:lower():gsub("'", "")
+							tbl29[#tbl29 + 1] = match
+							if not (8 <= #tbl28) then
+								continue
+							end
+							break
+						end
+
+						local slicedn35 = 1  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+						while tbl28[slicedn35] and tbl26[tbl28[slicedn35]] do
+							slicedn35 += 1
+						end
+
+						local sliced99 = tbl28[slicedn35]
+						local flag26 = tbl29[slicedn35]
+						flag26 = flag26 and flag26:match("^%u%l") and sliced99 ~= "the" and sliced99 ~= "its"
+
+						if sliced99 and not flag26 then
+							local sliced100 = tbl28[slicedn35 + 1]
+							local flag27 = sliced100 ~= nil and sliced100:match("^%d+[snrt][tdh]$") ~= nil and tbl28[slicedn35 + 2] == "of"
+
+							for i = slicedn35 + 1, math.min(slicedn35 + 5, #tbl28) do  -- LEAKED BY SLICED | discord.gg/pubmethod
+								local sliced101 = tbl28[i]
+
+								if sliced101 == "message" or sliced101 == "messages" or sliced101 == "timer" or sliced101 == "announcement" or sliced101 == "below" or sliced101 == "top" or sliced101 == "following" then
+									flag27 = true
+								end
+							end
+
+							local tbl30 = {
+								morning = 1,
+								afternoon = 1,
+								evening = 1,
+								night = 1,  -- LEAKED BY SLICED | discord.gg/pubmethod
+								tonight = 1,
+								time = 1,
+								hour = 1,
+								month = 1,
+								year = 1,
+							}
+
+							local flag28 = sliced99 == "this" or sliced99 == "that"
+
+							if flag28 then
+								flag28 = tbl30[sliced100 or ""]
+							end  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+							if flag28 then
+								flag28 = not tbl21[tbl28[slicedn35 + 2] or ""]
+							end
+
+							if flag28 then
+								flag27 = true
+							end
+
+							if sliced99 == "this" and str8:sub(tbl27[2] + 1):match("^[%s%p]*this[%s]*[,%.!:%-]") then
+								flag27 = true
+							end
+
+							if tbl23[sliced99] and tbl29[slicedn35 + 1] and tbl29[slicedn35 + 1]:match("^%u%l") and not flag24 then  -- LEAKED BY SLICED | discord.gg/pubmethod
+								local flag29 = false
+
+								for i = slicedn35 + 1, math.min(slicedn35 + 4, #tbl28) do
+									if tbl21[tbl28[i]] or tbl29[i]:match("'[sS]$") then
+										flag29 = true
+									end
+								end
+
+								if not flag29 then
+									flag27 = true
+								end
+							end  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+							if tbl23[sliced99] and sliced100 ~= nil and not flag27 and (sliced100 == "one" and (tbl28[slicedn35 + 2] == "that" or tbl28[slicedn35 + 2] == "with" or tbl28[slicedn35 + 2] == "one") or not tbl25[sliced100]) then
+								return "riddle", "property"
+							end
+
+							if sliced99:match("^%d+[snrt][tdh]$") then
+								return "riddle", "property"
+							end
+
+							if tbl21[sliced99] then
+								return "riddle", "property"
+							end
+							local sliced101 = tbl24[sliced99]  -- LEAKED BY SLICED | discord.gg/pubmethod
+							local sliced102
+
+							if sliced101 then
+								local sliced103 = tbl21[sliced100 or ""]
+
+								if sliced103 then
+									sliced102 = sliced103
+								else
+									sliced102 = tbl21[tbl28[slicedn35 + 2] or ""]
+								end
+							else
+								sliced102 = sliced101  -- LEAKED BY SLICED | discord.gg/pubmethod
+							end
+
+							if sliced102 then
+								return "riddle", "property"
+							end
+						end
+
+						if sliced99 then
+							for i = slicedn35, math.min(slicedn35 + 4, #tbl28) do
+								local match = tbl29[i]:match("'[sS]$") or tbl28[i]:match("s$") and tbl28[i] ~= "it" and tbl28[i] ~= "its" and tbl28[i] ~= "his"
+								local sliced100
+
+								if match then  -- LEAKED BY SLICED | discord.gg/pubmethod
+									sliced100 = tbl21[tbl28[i + 1] or ""]
+								else
+									sliced100 = match
+								end
+
+								if sliced100 then
+									return "riddle", "property"
+								end
+
+								if not (tbl29[i]:match("^%u") or tbl28[i]:match("s$")) then
+									break
+								end  -- LEAKED BY SLICED | discord.gg/pubmethod
+							end
+						end
+					end
+
+					local match = str9:match("^(.-)%s+is%s+the%s+code") or str9:match("^(.-)%s+is%s+today'?s%s+code") or str9:match("^(.-)%s+will%s+be%s+the%s+code") or str9:match("^(.-)%s*=%s*the%s+code")
+
+					if match and #match < 40 then
+						for match2 in match:gmatch("%a+") do
+							if tbl21[match2] then
+								return "riddle", "property"
+							end
+						end  -- LEAKED BY SLICED | discord.gg/pubmethod
+					end
+
+					for _, sliced99 in ipairs({
+						" of the brainrot ",
+						" of the prize ",
+						" of this brainrot ",
+						" of that brainrot ",
+						" of that brainrot ",
+						" of the reward ",
+						" of the item ",
+					}) do  -- LEAKED BY SLICED | discord.gg/pubmethod
+						local pos = str10:find(sliced99, 1, true)
+
+						if pos then
+							pos = tbl21[str10:sub(1, pos):match("(%a+)%s*$") or ""]
+						end
+
+						if pos then
+							return "riddle", "property"
+						end
+					end
+				end
+
+				if str9:find("code", 1, true) then  -- LEAKED BY SLICED | discord.gg/pubmethod
+					return "code"
+				end
+
+				for _, sliced99 in ipairs({ " redeem ", " type ", " enter ", " claim " }) do
+					if str10:find(sliced99, 1, true) then
+						return "code"
+					end
+				end
+
+				if slicedn34 >= 7 then
+					return "riddle"
+				end  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+				if slicedn34 == 1 then
+					return "code"
+				end
+
+				if slicedn34 <= 3 then
+					local slicedn35 = 0
+
+					for _, sliced99 in ipairs(tbl19) do
+						if #sliced99 >= 3 and (sliced99 == sliced99:upper() and sliced99:match("%a") or sliced99:match("%d")) then
+							slicedn35 += 1
+						end
+					end  -- LEAKED BY SLICED | discord.gg/pubmethod
+
+					if slicedn35 == slicedn34 then
+						return "code"
+					end
+				end
+
+				return nil
+			end
+
+			do
+				local sliced99 = nil
+				sliced93 = nil
+				flag22 = false  -- LEAKED BY SLICED | discord.gg/pubmethod
+				tbl17 = {}
+				flag23 = false
+				str7 = ""
+				sliced94 = nil
+				sliced95 = nil
+				slicedfn30 = nil
+
+				slicedfn31 = function(arg)
+					if type(arg) ~= "string" then
+						return tostring(arg)
+					end  -- LEAKED BY SLICED | discord.gg/pubmethod
+					return (arg:gsub("<[^>]->", ""))
+				end
+
+				slicedfn32 = function(arg)
+					return (arg or ""):gsub("^%s+", ""):gsub("%s+$", "")
+				end
+
+				slicedfn33 = function(arg)
+					if not writeClipboard then
+						return false
+					end
+
+					return (pcall(writeClipboard, arg))  -- LEAKED BY SLICED | discord.gg/pubmethod
+				end
+
+				slicedfn34 = function(arg)
+					if not arg then
+						return nil
+					end
+					local ok, result = pcall(require, arg)
+					if not ok then
+						return
+					end
+
+					return result  -- LEAKED BY SLICED | discord.gg/pubmethod
+				end
+
+				_G.__RiddlerRequireIfLoaded = function(arg)
+					if not (arg and _G.__RiddlerGetLoadedModules) then
+						return nil
+					end
+					local ok, result = pcall(_G.__RiddlerGetLoadedModules)
+					if not ok or type(result) ~= "table" then
+						return nil
+					end
+
+					for _, sliced100 in ipairs(result) do  -- LEAKED BY SLICED | discord.gg/pubmethod
+						if sliced100 == arg then
+							return slicedfn34(arg)
+						end
+					end
+				end
+
+				_G.__RiddlerFindUpvalueTable = function(arg, arg2)
+					if type(arg) ~= "function" or not getupvalues_ then
+						return nil
+					end
+					local ok, result = pcall(getupvalues_, arg)  -- LEAKED BY SLICED | discord.gg/pubmethod
+					if not ok or type(result) ~= "table" then
+						return nil
+					end
+
+					for _, sliced100 in pairs(result) do
+						if type(sliced100) == "table" and rawget(sliced100, arg2) ~= nil then
+							return sliced100
+						end
+					end
+				end
+
+				_G.__RiddlerGetSynchronizedPlayerCache = function()  -- LEAKED BY SLICED | discord.gg/pubmethod
+					local sliced100 = sliced86:FindFirstChi
